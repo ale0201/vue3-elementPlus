@@ -1,0 +1,17 @@
+.layout-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .layout-content {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    .layout-aside {
+      width: 240px;
+    }
+    .layout-main {
+    }
+  }
+}
