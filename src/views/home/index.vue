@@ -50,7 +50,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from "vue";
-import { defineMenus } from "../../router/defineMenu";
+import { defineMenus } from "@/router/defineMenu";
 import { useRouter } from "vue-router";
 export default defineComponent({
   setup() {
