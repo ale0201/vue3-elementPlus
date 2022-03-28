@@ -41,6 +41,7 @@
         <el-header style="text-align: right; font-size: 12px">
           <span>王小虎</span>
         </el-header>
+        <TestC :name="state.name" :text="state.text" @text="textClick"></TestC>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -52,17 +53,26 @@
 import { defineComponent, onMounted, reactive } from "vue";
 import { defineMenus } from "@/router/defineMenu";
 import { useRouter } from "vue-router";
+import TestC from "../../components/testComponent/index.vue";
 export default defineComponent({
+  components: {
+    TestC,
+  },
   setup() {
     const router = useRouter();
     // const route = useRoute();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const state = reactive<any>({
       menus: defineMenus,
+      text: "texthaha",
+      name: "namehaha",
     });
     onMounted(() => {
       console.log(">>>mounted");
     });
+    const textClick = (text: string) => {
+      alert(text);
+    };
     const selectMenu = (index: string, indexPath: string[]) => {
       router.push({
         path: index,
@@ -71,6 +81,7 @@ export default defineComponent({
     return {
       state,
       selectMenu,
+      textClick,
     };
   },
 });
